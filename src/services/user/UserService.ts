@@ -7,14 +7,6 @@ interface UserProps {
   email: string;
 }
 
-interface User {
-  name: string;
-}
-
-interface Response {
-  data: Object;
-}
-
 class UserService {
   private url = 'http://localhost:3333';
 
