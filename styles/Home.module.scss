@@ -16,6 +16,13 @@
   flex-direction: column;
   padding: 2rem 1.5rem;
 
+  p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ff3f48;
+  }
+
   h1 {
     color: var(--white);
     padding-bottom: 1rem;
@@ -43,4 +50,8 @@
   .login {
     width: 90%;
   }
+}
+
+.error-message {
+  font-size: 35px;
 }
