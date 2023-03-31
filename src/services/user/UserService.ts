@@ -1,5 +1,6 @@
 import { AxiosError } from 'axios';
 import { api } from '../apiClient';
+import { toast } from 'react-toastify';
 
 interface UserProps {
   name: string;
@@ -25,11 +26,10 @@ class UserService {
     }
   };
 
-  getUserByToken = (token: string) => {
+  getUserByToken = async (token: string) => {
     try {
-      api.get(`${this.url}/me/${token}`).then((response) => {
-        return response.data;
-      });
+      const response = await api.get(`${this.url}/me/${token}`);
+      return response.data;
     } catch (error) {
       const responseError = error as AxiosError;
       return responseError.response?.data;

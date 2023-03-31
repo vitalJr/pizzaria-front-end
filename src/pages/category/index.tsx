@@ -1,9 +1,11 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 
 import Header from '@/components/Header';
 import Head from 'next/head';
 import styles from './styles.module.scss';
 import CategoryService from '@/services/category/CategoryService';
+import { verifyConnection } from '@/utils/utils';
+import { toast } from 'react-toastify';
 
 interface Category {
   id: string;
@@ -15,9 +17,19 @@ const Category = () => {
 
   const handleRegister = async (event: FormEvent) => {
     event.preventDefault();
+
+    if (!name) {
+      toast.error('Write the category name.');
+      return;
+    }
+
     await CategoryService.register({ name });
     setName('');
   };
+
+  useEffect(() => {
+    verifyConnection();
+  }, []);
 
   return (
     <>

@@ -15,7 +15,7 @@ type AuthContextData = {
   signOut: () => void;
 };
 
-type UserProps = {
+export type UserProps = {
   id: string;
   name: string;
   email: string;
